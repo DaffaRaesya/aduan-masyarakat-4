@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+      <h1>Aduan Masyarakat</h1>
+      <p>Hotspot Login System</p>
+    </div>
+
+    <div class="tab">
+      <button class="tab-btn active" onclick="openTab('voucher')">Voucher</button>
+      <button class="tab-btn" onclick="openTab('member')">Member</button>
+    </div>
+
+    <!-- FORM VOUCHER -->
+    <div id="voucher" class="form-box active">
+      <p class="info-text">
+        Masukkan kode voucher yang sudah terdaftar pada User Manager MikroTik.
+      </p>
+
+      <form action="$(link-login-only)" method="post">
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+
+        <div class="input-group">
+          <label>Kode Voucher</label>
+          <input type="text" name="username" placeholder="Masukkan kode voucher" required>
+        </div>
+
+        <input type="hidden" name="password" value="" />
+
+        <button type="submit" class="btn-login">Login Voucher</button>
+      </form>
+    </div>
+
+    <!-- FORM MEMBER -->
+    <div id="member" class="form-box">
+      <p class="info-text">
+        Login menggunakan username dan password member hotspot MikroTik.
+      </p>
+
+      <form action="$(link-login-only)" method="post">
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="Masukkan username" required>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit" class="btn-login">Login Member</button>
+      </form>
+    </div>
+
+    <div class="footer">
+      Instagram <span>@aduanmasyarakat</span>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabName) {
+      const tabs = document.querySelectorAll('.form-box');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
